@@ -3,7 +3,7 @@ const Transaction = require("../models/transaction.js");
 
 router.post("/api/transaction", ({ body }, res) => {
   Transaction.create(body)
-    .then((dbTransaction) => {
+    .then((budgetDB) => {
       res.json(budgetDB);
     })
     .catch((err) => {
@@ -13,7 +13,7 @@ router.post("/api/transaction", ({ body }, res) => {
 
 router.post("/api/transaction/bulk", ({ body }, res) => {
   Transaction.insertMany(body)
-    .then((dbTransaction) => {
+    .then((budgetDB) => {
       res.json(budgetDB);
     })
     .catch((err) => {
@@ -24,7 +24,7 @@ router.post("/api/transaction/bulk", ({ body }, res) => {
 router.get("/api/transaction", (req, res) => {
   Transaction.find({})
     .sort({ date: -1 })
-    .then((dbTransaction) => {
+    .then((budgetDB) => {
       res.json(budgetDB);
     })
     .catch((err) => {
